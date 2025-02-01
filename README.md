@@ -48,7 +48,7 @@ composer require rajchotaliya/apple-push-notification-service
 ---
 
 ### Core PHP
-1. **Configuration: (Required) **
+1. **Configuration (Required) :**
    - Manually create a configuration file at `config/apns.php` in your project root directory:
      ```php
      <?php
@@ -77,6 +77,8 @@ composer require rajchotaliya/apple-push-notification-service
    ```
 
 ---
+
+# JWT Token
 
 ## Fetch JWT for Authentication (Separate Token Fetch)
 
