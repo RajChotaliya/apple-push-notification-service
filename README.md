@@ -1,7 +1,3 @@
-Here’s the text you can copy for your README file:
-
----
-
 # Apple Push Notification Service (APNs)
 
 A PHP library to send push notifications to Apple devices using the APNs service.
@@ -19,7 +15,7 @@ composer require rajchotaliya/apple-push-notification-service
 ## Usage
 
 ### Laravel
-1. **Configuration:**
+1. **Configuration (Optional) :**
    - After installing the package, publish the configuration file using the following Artisan command:
      ```bash
      php artisan vendor:publish --provider="RajChotaliya\ApplePushNotificationService\ApplePushNotificationServiceProvider"
@@ -45,14 +41,14 @@ composer require rajchotaliya/apple-push-notification-service
    $title = 'Hello from APNs!';
    $body = 'This is a test push notification.';
 
-   $apns = new APNs($deviceToken, $title, $body);
-   $response = $apns->send();
+   $apns = new ApplePushNotificationService($deviceToken, $title, $body);
+   $response = $apns->sendNotification();
    ```
 
 ---
 
 ### Core PHP
-1. **Configuration:**
+1. **Configuration: (Required) **
    - Manually create a configuration file at `config/apns.php` in your project root directory:
      ```php
      <?php
@@ -76,9 +72,23 @@ composer require rajchotaliya/apple-push-notification-service
    $title = 'Hello from APNs!';
    $body = 'This is a test push notification.';
 
-   $apns = new APNs($deviceToken, $title, $body);
-   $response = $apns->send();
+   $apns = new ApplePushNotificationService($deviceToken, $title, $body);
+   $response = $apns->sendNotification();
    ```
+
+---
+
+## Fetch JWT for Authentication (Separate Token Fetch)
+
+To fetch the JWT (JSON Web Token) for authentication with Apple's APNs service, you can use the following method. This token is used for making authenticated requests to the APNs service.
+
+### Example:
+
+```php
+$jwt = $apns->fetchJWT();
+```
+
+The `fetchJWT()` method retrieves the token needed for authenticating requests, ensuring that your notifications are sent securely to the APNs service.
 
 ---
 
@@ -101,4 +111,4 @@ You can show your appreciation by buying me a tea through the following link:
 
 ---
 
-Let me know if you need further adjustments!
+This should now clearly separate the usage of `fetchJWT()` for authentication from the push notification sending functionality. Let me know if you need any more updates!
