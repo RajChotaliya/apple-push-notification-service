@@ -62,7 +62,8 @@ composer require rajchotaliya/apple-push-notification-service
 
 ### Core PHP
 1. **Configuration (Required) :**
-   - Manually create a configuration file at `config/apns.php` in your project root directory:
+
+   Manually create a configuration file at `config/apns.php` in your project root directory:
      ```php
      <?php
 
