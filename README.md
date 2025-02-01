@@ -127,5 +127,3 @@ You can show your appreciation by buying me a tea through the following link:
 [Buy me a tea](https://drive.google.com/file/d/1-i7MNcvvixDv5C2qrnQJ0uFWdUbUvxI3/view?usp=sharing)
 
 ---
-
-This should now clearly separate the usage of `fetchJWT()` for authentication from the push notification sending functionality. Let me know if you need any more updates!
