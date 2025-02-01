@@ -13,6 +13,7 @@ class ApplePushNotificationService
     protected $privateKeyPath;
     protected $title;
     protected $body;
+    protected $config;
 
     // List of required config keys
     protected $requiredConfigKeys = [
@@ -25,16 +26,16 @@ class ApplePushNotificationService
     public function __construct($deviceToken, $title = 'Hello from Raj!', $body = 'This is a test push notification.')
     {
         // Determine if we are in a Laravel environment or Core PHP
-        $config = $this->loadConfig();
+       $this->config = $this->loadConfig();
 
         // Validate the loaded configuration
         $this->validateConfig();
 
         $this->deviceToken = $deviceToken;
-        $this->bundleId = $config['bundle_id'];
-        $this->keyId = $config['key_id'];
-        $this->teamId = $config['team_id'];
-        $this->privateKeyPath = $config['private_key_path'];
+        $this->bundleId =$this->config['bundle_id'];
+        $this->keyId =$this->config['key_id'];
+        $this->teamId =$this->config['team_id'];
+        $this->privateKeyPath =$this->config['private_key_path'];
         $this->title = $title;
         $this->body = $body;
     }
@@ -51,10 +52,11 @@ class ApplePushNotificationService
             return config('apns');
         }
 
-        // In Core PHP, manually load the configuration file
-        // In Core PHP, manually load the configuration file from the project root directory
-        $configPath = __DIR__ . '/../../config/apns.php'; // Move up 4 levels to get to the project root
-
+        // In Core PHP, determine the configuration file path from the project root
+        $projectRoot = dirname(__DIR__, 4); // Navigate up to the root directory from the package directory
+        $configFolder = 'config';     // Define the name of the configuration folder
+        $configPath = $projectRoot . DIRECTORY_SEPARATOR . $configFolder . DIRECTORY_SEPARATOR . 'apns.php';
+        
         if (!file_exists($configPath)) {
             throw new Exception("Configuration file not found at {$configPath}");
         }
