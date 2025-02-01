@@ -39,7 +39,7 @@ composer require rajchotaliya/apple-push-notification-service
 2. **Using the Library:**
    You can use the library in your Laravel application as follows:
    ```php
-   use RajChotaliya\ApplePushNotificationService\APNs;
+   use RajChotaliya\ApplePushNotificationService\ApplePushNotificationService;
 
    $deviceToken = 'your_device_token';
    $title = 'Hello from APNs!';
@@ -70,7 +70,7 @@ composer require rajchotaliya/apple-push-notification-service
    ```php
    require 'vendor/autoload.php';
 
-   use RajChotaliya\ApplePushNotificationService\APNs;
+   use RajChotaliya\ApplePushNotificationService\ApplePushNotificationService;
 
    $deviceToken = 'your_device_token';
    $title = 'Hello from APNs!';
