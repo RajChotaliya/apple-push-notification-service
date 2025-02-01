@@ -15,24 +15,37 @@ composer require rajchotaliya/apple-push-notification-service
 ## Usage
 
 ### Laravel
-1. **Configuration (Optional) :**
-   - After installing the package, publish the configuration file using the following Artisan command:
-     ```bash
-     php artisan vendor:publish --provider="RajChotaliya\ApplePushNotificationService\ApplePushNotificationServiceProvider"
-     ```
-   - This will publish the `apns.php` file into your Laravel project's `config` directory. You can then customize it to fit your needs.
+1. **Configuration :**
+   - **Environment Variables (Required)**
 
-   Example configuration in `config/apns.php`:
-   ```php
-   return  [
-        'bundle_id' => env('APNS_BUNDLE_ID', ''),
-        'key_id' => env('APNS_KEY_ID', ''),
-        'team_id' => env('APNS_TEAM_ID', ''),
-        'private_key_path' => env('APNS_PRIVATE_KEY_PATH', storage_path('AuthKey.p8')),
-    ];
-   ```
+      Add the following entries to your `.env` file:
+      ```php
+      APNS_BUNDLE_ID=your_bundle_id
+      APNS_KEY_ID=your_key_id
+      APNS_TEAM_ID=your_team_id
+      APNS_PRIVATE_KEY_PATH=/path/to/your/AuthKey.p8
+      ```
+
+   - **Publish Config File (Optional)**
+
+      After installing the package, publish the configuration file using the following Artisan command:
+      ```bash
+      php artisan vendor:publish --provider="RajChotaliya\ApplePushNotificationService\ApplePushNotificationServiceProvider"
+      ```
+      This will publish the `apns.php` file into your Laravel project's `config` directory. You can then customize it to fit your needs.
+
+      Example configuration in `config/apns.php`:
+      ```php
+      return  [
+         'bundle_id' => env('APNS_BUNDLE_ID', ''),
+         'key_id' => env('APNS_KEY_ID', ''),
+         'team_id' => env('APNS_TEAM_ID', ''),
+         'private_key_path' => env('APNS_PRIVATE_KEY_PATH', storage_path('AuthKey.p8')),
+      ];
+      ```
 
 2. **Using the Library:**
+   
    You can use the library in your Laravel application as follows:
    ```php
    use RajChotaliya\ApplePushNotificationService\ApplePushNotificationService;
@@ -62,6 +75,7 @@ composer require rajchotaliya/apple-push-notification-service
      ```
 
 2. **Using the Library:**
+   
    You can use the library in a Core PHP project as follows:
    ```php
    require 'vendor/autoload.php';
@@ -74,6 +88,8 @@ composer require rajchotaliya/apple-push-notification-service
 
    $apns = new ApplePushNotificationService($deviceToken, $title, $body);
    $response = $apns->sendNotification();
+   
+   echo $response['message'];
    ```
 
 ---
