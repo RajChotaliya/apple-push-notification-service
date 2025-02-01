@@ -78,19 +78,17 @@ composer require rajchotaliya/apple-push-notification-service
 
 ---
 
-# JWT Token
-
 ## Fetch JWT for Authentication (Separate Token Fetch)
+- ### Fetch JWT for Authentication (Separate Token Fetch)
+   To fetch the JWT (JSON Web Token) for authentication with Apple's APNs service, you can use the following method. This token is used for making authenticated requests to the APNs service.
 
-To fetch the JWT (JSON Web Token) for authentication with Apple's APNs service, you can use the following method. This token is used for making authenticated requests to the APNs service.
+  ### Example:
 
-### Example:
+   ```php
+   $jwt = $apns->fetchJWT();
+   ```
 
-```php
-$jwt = $apns->fetchJWT();
-```
-
-The `fetchJWT()` method retrieves the token needed for authenticating requests, ensuring that your notifications are sent securely to the APNs service.
+   The `fetchJWT()` method retrieves the token needed for authenticating requests, ensuring that your notifications are sent securely to the APNs service.
 
 ---
 
