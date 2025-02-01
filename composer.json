@@ -1,0 +1,35 @@
+{
+    "name": "rajchotaliya/apple-push-notification-service",
+    "description": "A PHP package to send push notifications using Apple's APNs.",
+    "type": "library",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "RajChotaliya\\ApplePushNotificationService\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Raj Chotaliya",
+            "email": "rajkc.webdev@gmail.com"
+        }
+    ],
+   "extra": {
+        "laravel": {
+            "providers": [
+                "RajChotaliya\\ApplePushNotificationService\\ApplePushNotificationServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "version": "1.0.7",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "D:/Apps/laragon/www/2025/packages/rajchotaliya/apple-push-notification-service"
+        }
+    ]
+}
