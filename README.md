@@ -6,6 +6,7 @@ A PHP library to send push notifications to Apple devices using the APNs service
 
 ```bash
 composer require rajchotaliya/apple-push-notification-service
+```
 
 ### Show Your Appreciation
 
